@@ -55,7 +55,7 @@ const Footer = () => (
         <div className="md:px-8">
           <div className="flex flex-col gap-2 text-sm font-body text-envgo-grey">
             <a href="mailto:marketing@envgo.com" className="hover:text-envgo-marine transition-colors">
-              marketing@envgo.com
+              info@envgo.com
             </a>
             <p className="mt-4 text-xs text-envgo-grey">
             © {new Date().getFullYear()} ENVGO. All rights reserved.

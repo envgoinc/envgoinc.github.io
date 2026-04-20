@@ -10,10 +10,11 @@ import nv1Lifestyle from "@/assets/nv1-lifestyle.jpg";
 import nv1PalmBeach from "@/assets/nv1-palmbeach-lifestyle.png";
 import nv1Dimensions from "@/assets/nv1-dimensions.png";
 import nv1FlightDiagram from "@/assets/nv1-flight-diagram-clean.png";
-import nv1ConceptSketches from "@/assets/nv1-concept-sketches.jpg";
+import nv1ConceptSketches from "@/assets/dweiss.png";
 import nv1Magenta from "@/assets/nv1-magenta-edition.jpg";
 import nv1Interior from "@/assets/nv1-interior-luxury.jpg";
 import nv1_video from "@/assets/hero_short.mp4";
+import nv1_canary from "@/assets/nv1_canary.jpg";
 
 const carouselImages = [
   { src: nv1Foiling, alt: "NV1 foiling above water with city skyline" },
@@ -44,7 +45,7 @@ const Recreation = () => {
   return (
     <main>
       {/* ── HERO ── */}
-      <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
+      <section className="relative h-[90vh] min-h-[420px] flex items-end overflow-hidden">
         
         {/* Fallback image */}
         <img
@@ -146,7 +147,7 @@ const Recreation = () => {
           </motion.div>
           <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }}>
             <img
-              src={nv1FlightDiagram}
+              src={nv1_canary}
               alt="NV1 hydrofoil side profile"
               className="w-full rounded-xl"
             />
@@ -168,16 +169,16 @@ const Recreation = () => {
     <section className="py-20 md:py-28">
       <div className="container">
         <motion.div {...fadeUp} className="flex justify-center mb-12">
-          <img
+          {/* <img
             src={nv1FlightDiagram}
             alt="NV1 hydrofoil side profile"
             className="w-full max-w-4xl"
-          />
+          /> */}
         </motion.div>
         <motion.div {...fadeUp} className="flex flex-wrap justify-center gap-10 md:gap-16 text-center">
           {[
-            { val: "43 kt", label: "Top speed (50 mph)" },
-            { val: "54 nmi", label: "Range (62 mi)" },
+            { val: "43 kt", label: "Top speed (80 km/h)" },
+            { val: "54 nmi", label: "Range (100 km)" },
             { val: "7 sec", label: "0 to flight" },
             { val: "4×", label: "Efficiency gain" },
           ].map((s, i) => (
@@ -226,7 +227,7 @@ const Recreation = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div {...fadeUp}>
             <img
-              src={nv1Dimensions}
+              src={nv1FlightDiagram}
               alt="NV1 dimensions and design"
               className="w-full rounded-xl"
             />
