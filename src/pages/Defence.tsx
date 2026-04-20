@@ -3,7 +3,7 @@ import PageHero from "@/components/PageHero";
 import FeatureCard from "@/components/FeatureCard";
 import SpecTable from "@/components/SpecTable";
 import { motion } from "framer-motion";
-import defenceHero from "@/assets/defence-hero.webp";
+import defenceHero from "@/assets/usv.png";
 
 const features = [
   { icon: Volume2, title: "Low Signature", description: "Electric, low-wake architecture reduces acoustic, visual, thermal, and surface-disturbance cues for lower-observable operations." },

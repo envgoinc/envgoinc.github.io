@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Sparkles, Battery, Gauge, ShieldCheck, Anchor, Waves, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -12,6 +13,7 @@ import nv1FlightDiagram from "@/assets/nv1-flight-diagram-clean.png";
 import nv1ConceptSketches from "@/assets/nv1-concept-sketches.jpg";
 import nv1Magenta from "@/assets/nv1-magenta-edition.jpg";
 import nv1Interior from "@/assets/nv1-interior-luxury.jpg";
+import nv1_video from "@/assets/hero_short.mp4";
 
 const carouselImages = [
   { src: nv1Foiling, alt: "NV1 foiling above water with city skyline" },
@@ -36,51 +38,92 @@ const fadeUp = {
   transition: { duration: 0.6 },
 };
 
-const Recreation = () => (
-  <main>
-    {/* ── HERO ── */}
-    <section className="relative h-[60vh] min-h-[420px] flex items-end">
-      <img
-        src={nv1Foiling}
-        alt="NV1 hydrofoil flying above water"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-      <div className="container relative z-10 pb-10">
-        <motion.span
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
-          className="inline-block px-3 py-1 mb-3 text-[10px] font-body font-medium uppercase tracking-[0.15em] rounded-full border border-primary/40 text-primary bg-primary/10"
+const Recreation = () => {
+  const [heroVideoLoaded, setHeroVideoLoaded] = useState(false);
+
+  return (
+    <main>
+      {/* ── HERO ── */}
+      <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
+        
+        {/* Fallback image */}
+        <img
+          src={nv1Foiling}
+          alt="NV1 hydrofoil flying above water"
+          className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-500 ${
+            heroVideoLoaded ? "opacity-0" : "opacity-100"
+          }`}
+        />
+
+        {/* Video */}
+        <video
+          src={nv1_video}
+          poster={nv1Foiling}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onLoadedData={() => setHeroVideoLoaded(true)}
+          className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-500 ${
+            heroVideoLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          aria-label="NV1 hydrofoil flying above water"
         >
-          NV1 Founders Edition
-        </motion.span>
-        <motion.h1
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-[28px] md:text-[44px] leading-[1.1] font-heading font-light max-w-2xl"
-        >
-          This isn't boating; it's flight.
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-3 text-base md:text-lg font-body text-muted-foreground max-w-xl"
-        >
-          The world's first performance-class electric hydrofoil, engineered for those who see the future.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-5 flex items-center gap-5"
-        >
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm hover:brightness-110 transition-all"
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+
+        {/* Content */}
+        <div className="container relative z-10 pb-10">
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="inline-block px-3 py-1 mb-3 text-[10px] font-body font-medium uppercase tracking-[0.15em] rounded-full border border-primary/40 text-primary bg-primary/10"
           >
-            Request a sea trial <ArrowRight className="w-4 h-4" />
-          </Link>
-          <span className="text-[11px] font-body font-medium tracking-[0.2em] text-primary/70 uppercase">
-            Silent · Smooth · Elevated
-          </span>
-        </motion.div>
-      </div>
-    </section>
+            NV1 Founders Edition
+          </motion.span>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-[28px] md:text-[44px] leading-[1.1] font-heading font-light max-w-2xl"
+          >
+            This isn't boating; it's flight.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-3 text-base md:text-lg font-body text-muted-foreground max-w-xl"
+          >
+            The world's first performance-class electric hydrofoil, engineered for those who see the future.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mt-5 flex items-center gap-5"
+          >
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm hover:brightness-110 transition-all"
+            >
+              Request a sea trial <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <span className="text-[11px] font-body font-medium tracking-[0.2em] text-primary/70 uppercase">
+              Silent · Smooth · Elevated
+            </span>
+          </motion.div>
+        </div>
+      </section>
 
     {/* ── WHAT FLIGHT FEELS LIKE ── */}
     <section className="py-24 md:py-32">
@@ -270,5 +313,5 @@ const Recreation = () => (
     </section>
   </main>
 );
-
+}
 export default Recreation;

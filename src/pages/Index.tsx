@@ -11,7 +11,6 @@ import p4 from "@/assets/p4.png";
 import p5 from "@/assets/p5.png";
 import p6 from "@/assets/p6.png";
 import p7 from "@/assets/p7.png";
-import p8 from "@/assets/p8.png";
 
 const fadeUp = { hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } };
 const fadeIn = { hidden: { opacity: 0 }, visible: { opacity: 1 } };

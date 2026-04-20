@@ -2,6 +2,20 @@
 import { motion } from "framer-motion";
 import { Users, Rocket, Target } from "lucide-react";
 import FeatureCard from "@/components/FeatureCard";
+import p0 from "@/assets/p0.png";
+import p1 from "@/assets/p1.png";
+import p2 from "@/assets/p2.png";
+import p3 from "@/assets/p3.png";
+import p4 from "@/assets/p4.png";
+import p5 from "@/assets/p5.png";
+import p6 from "@/assets/p6.png";
+import p7 from "@/assets/p7.png";
+import Jerry from "@/assets/Jerry.webp";
+import April from "@/assets/April.webp";
+import Pete from "@/assets/Pete.webp";
+import Paul from "@/assets/Paul.webp";
+import Mike from "@/assets/Mike.webp";
+import Turbo from "@/assets/Turbo.webp";
 
 type TeamMember = {
   name: string;
@@ -10,12 +24,6 @@ type TeamMember = {
   image: string;
 };
 
-const Jerry = "/src/assets/Jerry.webp";
-const April = "/src/assets/April.webp";
-const Pete = "/src/assets/Pete.webp";
-const Paul = "/src/assets/Paul.webp";
-const Mike = "/src/assets/Mike.webp";
-const Turbo = "/src/assets/Turbo.webp";
 
 const TEAM: TeamMember[] = [
   { name: "Mike Peasgood",  role: "CEO",              linkedin: "https://www.linkedin.com/in/mike-peasgood/", image: Mike },
@@ -33,16 +41,15 @@ type Partner = {
 };
 
 const PARTNERS: Partner[] = [
-  { logo: "/src/assets/p0.png",url: "#", name:"" },
-  { logo: "/src/assets/p1.png",url: "#", name:"" },
-  { logo: "/src/assets/p2.png",  url: "#", name:"" },
-  { logo: "/src/assets/p3.png",url: "#", name:"" },
-  { logo: "/src/assets/p4.png",  url: "#", name:"" },
-  { logo: "/src/assets/p5.png",url: "#", name:"" },
-  { logo: "/src/assets/p6.png",  url: "#", name:"" },
-  { logo: "/src/assets/p7.png",url: "#", name:"" }
+  { logo: p0, url: "https://twosmallfish.vc", name: "Two Small Fish" },
+  { logo: p1, url: "https://www.graphitevc.com", name: "Graphite Ventures" },
+  { logo: p2, url: "https://www.acceleratorcentre.com", name: "The Accelerator Centre" },
+  { logo: p3, url: "https://designovacreative.com", name: "Design Nova" },
+  { logo: p4, url: "https://www.garage.vc", name: "Garage Capital" },
+  { logo: p5, url: "https://www.nventure.ca", name: "NCFDC" },
+  { logo: p6, url: "https://natural-resources.canada.ca/corporate/planning-reporting/departmental-plan/rpp-2016-17/sustainable-development-technology-canada-sdtc-sd-tech-fund", name: "SDTC" },
+  { logo: p7, url: "https://www.thrive-fwd.com", name: "Thrive Forward" },
 ];
-
 const About = () => (
   <main>
     {/* Hero */}

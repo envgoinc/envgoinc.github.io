@@ -2,7 +2,7 @@ import { Zap, Waves, Brain, Battery, Gauge, Shield } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import FeatureCard from "@/components/FeatureCard";
 import { motion } from "framer-motion";
-import techHero from "@/assets/technology-hero.png";
+import techHero from "@/assets/tech_animation.mp4";
 
 const pillars = [
   {
@@ -60,18 +60,29 @@ const Technology = () => (
       </div>
     </section>
 
-    <section className="pb-12">
-      <div className="container">
-        <motion.img
-          src={techHero}
-          alt="ENVGO NV1 Flight Control System"
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="w-full rounded-xl"
-        />
-      </div>
-    </section>
+<section className="pb-12">
+  <div className="container">
+    <motion.div
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.25 }}
+      className="w-full overflow-hidden rounded-xl bg-black"
+    >
+      <video
+        src={techHero}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-label="ENVGO NV1 Flight Control System"
+        className="block w-full h-auto object-cover pointer-events-none"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </motion.div>
+  </div>
+</section>
 
     <section className="py-20">
       <div className="container">
