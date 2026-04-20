@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { to: "/technology", label: "Technology" },
   { to: "/defence", label: "Defence" },
-  { to: "/transportation", label: "Transportation" },
+  // { to: "/transportation", label: "Transportation" },
   { to: "/recreation", label: "Recreation" },
   { to: "/about", label: "About" },
 ];
@@ -30,13 +30,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-16">
-        <Link to="/">
-          <img
-            src="https://cdn.prod.website-files.com/67c8b53c8bda1119d4034208/6841ccda1df59e27966e9224_ENVGO_Logo-Primary-Midnight.png"
-            alt="ENVGO"
-            className="h-7 w-auto brightness-0 invert"
-          />
-        </Link>
+      <Link to="/" className="inline-flex items-center py-2 pr-4">
+        <img
+          src="https://cdn.prod.website-files.com/67c8b53c8bda1119d4034208/6841ccda1df59e27966e9224_ENVGO_Logo-Primary-Midnight.png"
+          alt="ENVGO"
+          className="block h-7 w-auto brightness-0 invert transition-opacity duration-300 hover:opacity-70"
+        />
+      </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
@@ -57,7 +57,7 @@ const Navbar = () => {
             to="/contact"
             className="ml-2 px-5 py-2 text-sm font-body font-bold uppercase tracking-wide rounded-full border border-envgo-marine text-envgo-marine hover:bg-envgo-marine hover:text-primary-foreground transition-all duration-300"
           >
-            Get started
+            Contact us
           </Link>
         </div>
 
@@ -93,7 +93,7 @@ const Navbar = () => {
               onClick={() => setOpen(false)}
               className="inline-block w-fit px-5 py-2 text-sm font-body font-bold uppercase tracking-wide rounded-full border border-envgo-marine text-envgo-marine"
             >
-              Get started
+              Contact Us
             </Link>
           </div>
         </div>

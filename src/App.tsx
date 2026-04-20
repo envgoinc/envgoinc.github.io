@@ -15,6 +15,9 @@ import News from "./pages/News";
 import NewsArticle from "./pages/NewsArticle";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+import Disclaimer from "./pages/Disclaimer";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,10 @@ const App = () => (
           <Route path="/news/:slug" element={<NewsArticle />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -14,49 +14,52 @@ const Footer = () => (
           <p className="text-sm font-body italic text-envgo-grey leading-relaxed">
             "Powering the next era of marine mobility."
           </p>
-          <p className="mt-4 text-xs text-envgo-grey">
-            © {new Date().getFullYear()} ENVGO. All rights reserved.
-          </p>
+
         </div>
 
         {/* Pages */}
         <div className="md:px-8">
           <div className="flex flex-col gap-2 text-sm font-body text-envgo-grey">
-            <Link to="/technology" className="hover:text-envgo-marine transition-colors">Platform</Link>
+            <Link to="/technology" className="hover:text-envgo-marine transition-colors">Technology</Link>
             <Link to="/defence" className="hover:text-envgo-marine transition-colors">Defence</Link>
-            <Link to="/transportation" className="hover:text-envgo-marine transition-colors">Transportation</Link>
+            {/* <Link to="/transportation" className="hover:text-envgo-marine transition-colors">Transportation</Link> */}
             <Link to="/recreation" className="hover:text-envgo-marine transition-colors">Recreation</Link>
             <Link to="/about" className="hover:text-envgo-marine transition-colors">About</Link>
-            <Link to="/contact" className="hover:text-envgo-marine transition-colors">Get started</Link>
+            {/* <Link to="/contact" className="hover:text-envgo-marine transition-colors">Get started</Link> */}
           </div>
         </div>
 
-        {/* Careers & News */}
-        <div className="md:px-8">
-          <div className="flex flex-col gap-2 text-sm font-body text-envgo-grey">
-            <Link to="/news" className="hover:text-envgo-marine transition-colors">News</Link>
-            <span className="text-envgo-grey/60">Careers (coming soon)</span>
-          </div>
-        </div>
+
 
         {/* Contact & Social */}
         <div className="md:pl-8">
           <div className="flex flex-col gap-2 text-sm font-body text-envgo-grey">
-            <a href="mailto:hello@envgo.com" className="hover:text-envgo-marine transition-colors">
-              hello@envgo.com
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-envgo-marine transition-colors">
+
+            <a href="https://www.linkedin.com/company/envgo/posts/" target="_blank" rel="noopener noreferrer" className="hover:text-envgo-marine transition-colors">
               LinkedIn
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-envgo-marine transition-colors">
+            <a href="https://www.instagram.com/envgoboats/" target="_blank" rel="noopener noreferrer" className="hover:text-envgo-marine transition-colors">
               Instagram
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-envgo-marine transition-colors">
+            <a href="https://www.facebook.com/envgoboats" target="_blank" rel="noopener noreferrer" className="hover:text-envgo-marine transition-colors">
               Facebook
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-envgo-marine transition-colors">
+            <Link to="/contact" className="hover:text-envgo-marine transition-colors">Contact Us</Link>
+
+            {/* <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-envgo-marine transition-colors">
               YouTube
+            </a> */}
+          </div>
+        </div>
+
+        <div className="md:px-8">
+          <div className="flex flex-col gap-2 text-sm font-body text-envgo-grey">
+            <a href="mailto:marketing@envgo.com" className="hover:text-envgo-marine transition-colors">
+              marketing@envgo.com
             </a>
+            <p className="mt-4 text-xs text-envgo-grey">
+            © {new Date().getFullYear()} ENVGO. All rights reserved.
+          </p>
           </div>
         </div>
       </div>
@@ -64,8 +67,15 @@ const Footer = () => (
       {/* Bottom bar */}
       <div className="mt-12 pt-6 border-t border-envgo-marine">
         <div className="flex justify-center gap-6 text-xs font-body text-envgo-grey">
-          <Link to="#" className="hover:text-envgo-marine transition-colors">Privacy Policy</Link>
-          <Link to="#" className="hover:text-envgo-marine transition-colors">Terms of Use</Link>
+          <Link to="/privacy-policy" className="hover:text-envgo-marine transition-colors">
+            Privacy Policy
+          </Link>
+          <Link to="/terms-of-use" className="hover:text-envgo-marine transition-colors">
+            Terms of Use
+          </Link>
+          <Link to="/disclaimer" className="hover:text-envgo-marine transition-colors">
+            Disclaimer
+          </Link>
         </div>
       </div>
     </div>

@@ -12,6 +12,8 @@ export default {
         "2xl": "1100px",
       },
     },
+
+
     extend: {
       fontFamily: {
         heading: ["Manrope", "sans-serif"],
@@ -80,31 +82,39 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(30px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "scroll-indicator": {
-          "0%, 100%": { opacity: "1", transform: "translateY(0)" },
-          "50%": { opacity: "0.5", transform: "translateY(8px)" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-up": "fade-up 0.8s ease-out forwards",
-        "scroll-indicator": "scroll-indicator 2s ease-in-out infinite",
-      },
+keyframes: {
+  "accordion-down": {
+    from: { height: "0" },
+    to: { height: "var(--radix-accordion-content-height)" },
+  },
+  "accordion-up": {
+    from: { height: "var(--radix-accordion-content-height)" },
+    to: { height: "0" },
+  },
+  "fade-up": {
+    "0%": { opacity: "0", transform: "translateY(30px)" },
+    "100%": { opacity: "1", transform: "translateY(0)" },
+  },
+  "scroll-indicator": {
+    "0%, 100%": { opacity: "1", transform: "translateY(0)" },
+    "50%": { opacity: "0.5", transform: "translateY(8px)" },
+  },
+  marquee: {
+    "0%": { transform: "translateX(0)" },
+    "100%": { transform: "translateX(-20%)" },
+  },
+},
+animation: {
+  marquee: "marquee 30s linear infinite",
+
+  "accordion-down": "accordion-down 0.2s ease-out",
+  "accordion-up": "accordion-up 0.2s ease-out",
+  "fade-up": "fade-up 0.8s ease-out forwards",
+  "scroll-indicator": "scroll-indicator 2s ease-in-out infinite",
+},
     },
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
+

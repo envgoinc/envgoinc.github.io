@@ -32,6 +32,23 @@ const techSources = [
   { label: "EVs", color: "text-envgo-neon" },
 ];
 
+
+type Partner = {
+  name: string;
+  logo: string;
+  url: string;
+};
+
+const PARTNERS: Partner[] = [
+  { logo: "/src/assets/p0.png",url: "https://twosmallfish.vc", name:"Two Small Fish" },
+  { logo: "/src/assets/p1.png",url: "https://www.graphitevc.com", name:"Graphite Ventures" },
+  { logo: "/src/assets/p2.png",  url: "https://www.acceleratorcentre.com", name:"The Accelerator Centre" },
+  { logo: "/src/assets/p3.png",url: "https://designovacreative.com", name:"Design Nova" },
+  { logo: "/src/assets/p4.png",  url: "https://www.garage.vc", name:"Garage Capital" },
+  { logo: "/src/assets/p5.png",url: "https://www.nventure.ca", name:"NCFDC" },
+  { logo: "/src/assets/p6.png",  url: "https://natural-resources.canada.ca/corporate/planning-reporting/departmental-plan/rpp-2016-17/sustainable-development-technology-canada-sdtc-sd-tech-fund", name:"SDTC" },
+  { logo: "/src/assets/p7.png",url: "https://www.thrive-fwd.com", name:"Thrive Forward" }
+];
 const Index = () => (
   <main>
     {/* ═══ HERO ═══ */}
@@ -133,13 +150,13 @@ const Index = () => (
             What Our Tech Unlocks
           </span>
           <h2 className="text-3xl md:text-[42px] leading-tight font-heading font-light">
-            Built for the missions that demand more.
+            Built for those that demand more.
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <SectorColumn title="Defence" linkTo="/defence" values={defenceValues} delay={0} />
-          <SectorColumn title="Transportation" linkTo="/transportation" values={transportationValues} delay={0.15} />
+          {/* <SectorColumn title="Transportation" linkTo="/transportation" values={transportationValues} delay={0.15} /> */}
           <SectorColumn title="Recreation" linkTo="/recreation" values={recreationValues} delay={0.3} />
         </div>
       </div>
@@ -213,6 +230,8 @@ const Index = () => (
       </div>
     </section>
 
+    
+
     {/* ═══ FINAL CTA ═══ */}
     <section className="py-[120px] bg-envgo-cruise/20">
       <div className="container max-w-[1100px] text-center">
@@ -239,6 +258,44 @@ const Index = () => (
           ENVGO. The platform powering the next generation of marine vessels.
         </motion.p>
       </div>
+    </section>
+
+      {/* Partners */}
+    <section className="py-16 section-fade overflow-hidden">
+      <div className="container mb-8">
+        <motion.span
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="inline-block px-3 py-1 text-xs font-body font-medium uppercase tracking-[0.15em] rounded-full border border-primary/40 text-primary bg-primary/10"
+        >
+          Our Partners
+        </motion.span>
+      </div>
+  <div className="pointer-events-none absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background to-transparent" />
+
+<div className="group relative overflow-hidden">
+  <div className="pointer-events-none absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background to-transparent" />
+  <div className="pointer-events-none absolute right-0 top-0 h-full w-32 z-10 bg-gradient-to-l from-background to-transparent" />
+
+  <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+    {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, i) => (
+      <a
+        // key={`${partner.name}-${i}`}
+        href={partner.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex shrink-0 items-center justify-center mr-28 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      >
+        <img
+          src={partner.logo}
+          alt={partner.name}
+          className="h-24 w-auto object-contain"
+        />
+      </a>
+    ))}
+  </div>
+  </div>
     </section>
   </main>
 );

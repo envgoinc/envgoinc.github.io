@@ -16,39 +16,105 @@ const COUNTRIES = [
   "Vietnam",
 ];
 
+const FORM_ENDPOINT = "https://formspree.io/f/mojylogb";
+
 const fadeUp = { hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } };
+
+type FormState = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  jobTitle: string;
+  company: string;
+  country: string;
+  message: string;
+  website: string; // honeypot
+};
+
+const EMPTY_FORM: FormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  jobTitle: "",
+  company: "",
+  country: "",
+  message: "",
+  website: "",
+};
 
 const Contact = () => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    jobTitle: "",
-    company: "",
-    country: "",
-    message: "",
-  });
+  const [form, setForm] = useState<FormState>(EMPTY_FORM);
 
-  const update = (field: string, value: string) =>
+  const update = (field: keyof FormState, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (submitting) return;
+
+    // Honeypot: bots often fill hidden fields
+    if (form.website.trim() !== "") {
+      return;
+    }
+
     setSubmitting(true);
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1000));
-    toast({
-      title: "Thank you",
-      description: "We'll be in touch shortly.",
-    });
-    setForm({
-      firstName: "", lastName: "", email: "", phone: "",
-      jobTitle: "", company: "", country: "", message: "",
-    });
-    setSubmitting(false);
+
+    try {
+      const payload = {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        phone: form.phone,
+        jobTitle: form.jobTitle,
+        company: form.company,
+        country: form.country,
+        message: form.message,
+        _subject: `New contact form submission from ${form.firstName} ${form.lastName}`,
+      };
+
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        let errorMessage = "Please try again.";
+        try {
+          const data = await res.json();
+          if (data?.errors?.[0]?.message) {
+            errorMessage = data.errors[0].message;
+          }
+        } catch {
+          // ignore JSON parse failure
+        }
+        throw new Error(errorMessage);
+      }
+
+      toast({
+        title: "Thank you",
+        description: "We'll be in touch shortly.",
+      });
+
+      setForm(EMPTY_FORM);
+    } catch (error) {
+      toast({
+        title: "Submission failed",
+        description:
+          error instanceof Error ? error.message : "Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -72,37 +138,91 @@ const Contact = () => {
           onSubmit={handleSubmit}
           className="space-y-10"
         >
-          <Field label="First name" required value={form.firstName} onChange={(v) => update("firstName", v)} />
-          <Field label="Last name" required value={form.lastName} onChange={(v) => update("lastName", v)} />
-          <Field label="Business email address" required type="email" value={form.email} onChange={(v) => update("email", v)} />
-          <Field label="Phone number" required type="tel" value={form.phone} onChange={(v) => update("phone", v)} />
-          <Field label="Job title" required value={form.jobTitle} onChange={(v) => update("jobTitle", v)} />
-          <Field label="Company / Institution" required value={form.company} onChange={(v) => update("company", v)} />
+          {/* Honeypot */}
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website}
+            onChange={(e) => update("website", e.target.value)}
+            className="hidden"
+            aria-hidden="true"
+          />
 
-          {/* Country select */}
-          <div>
+          <Field
+            label="Name"
+            name="firstName"
+            required
+            value={form.firstName}
+            onChange={(v) => update("firstName", v)}
+          />
+          {/* <Field
+            label="Last name"
+            name="lastName"
+            required
+            value={form.lastName}
+            onChange={(v) => update("lastName", v)}
+          /> */}
+          <Field
+            label="Email address"
+            name="email"
+            required
+            type="email"
+            value={form.email}
+            onChange={(v) => update("email", v)}
+          />
+          <Field
+            label="Phone number"
+            name="phone"
+            
+            type="tel"
+            value={form.phone}
+            onChange={(v) => update("phone", v)}
+          />
+          {/* <Field
+            label="Job title"
+            name="jobTitle"
+            required
+            value={form.jobTitle}
+            onChange={(v) => update("jobTitle", v)}
+          /> */}
+          <Field
+            label="Company / Institution"
+            name="company"
+            
+            value={form.company}
+            onChange={(v) => update("company", v)}
+          />
+
+          {/* <div>
             <label className="block text-xs font-body font-medium uppercase tracking-[0.15em] text-envgo-grey mb-2">
               Country: <span className="text-envgo-fireside">*</span>
             </label>
             <select
+              name="country"
               required
               value={form.country}
               onChange={(e) => update("country", e.target.value)}
               className="w-full bg-transparent border-b border-envgo-grey/40 pb-2 text-base font-body text-foreground focus:outline-none focus:border-envgo-marine transition-colors appearance-none cursor-pointer"
             >
-              <option value="" className="bg-background text-envgo-grey">Select...</option>
+              <option value="" className="bg-background text-envgo-grey">
+                Select...
+              </option>
               {COUNTRIES.map((c) => (
-                <option key={c} value={c} className="bg-background text-foreground">{c}</option>
+                <option key={c} value={c} className="bg-background text-foreground">
+                  {c}
+                </option>
               ))}
             </select>
-          </div>
+          </div> */}
 
-          {/* Message */}
           <div>
             <label className="block text-xs font-body font-medium uppercase tracking-[0.15em] text-envgo-grey mb-2">
               Tell us about your project. A bit of context will allow us to connect you to the right team faster:
             </label>
             <textarea
+              name="message"
               rows={5}
               value={form.message}
               onChange={(e) => update("message", e.target.value)}
@@ -124,15 +244,26 @@ const Contact = () => {
 };
 
 const Field = ({
-  label, required, type = "text", value, onChange,
+  label,
+  name,
+  required,
+  type = "text",
+  value,
+  onChange,
 }: {
-  label: string; required?: boolean; type?: string; value: string; onChange: (v: string) => void;
+  label: string;
+  name: string;
+  required?: boolean;
+  type?: string;
+  value: string;
+  onChange: (v: string) => void;
 }) => (
   <div>
     <label className="block text-xs font-body font-medium uppercase tracking-[0.15em] text-envgo-grey mb-2">
       {label}: {required && <span className="text-envgo-fireside">*</span>}
     </label>
     <input
+      name={name}
       type={type}
       required={required}
       value={value}
