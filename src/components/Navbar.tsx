@@ -57,7 +57,7 @@ const Navbar = () => {
             to="/contact"
             className="ml-2 px-5 py-2 text-sm font-body font-bold uppercase tracking-wide rounded-full border border-envgo-marine text-envgo-marine hover:bg-envgo-marine hover:text-primary-foreground transition-all duration-300"
           >
-            Contact us
+            Get Started
           </Link>
         </div>
 
@@ -93,7 +93,7 @@ const Navbar = () => {
               onClick={() => setOpen(false)}
               className="inline-block w-fit px-5 py-2 text-sm font-body font-bold uppercase tracking-wide rounded-full border border-envgo-marine text-envgo-marine"
             >
-              Contact Us
+              Get Started
             </Link>
           </div>
         </div>

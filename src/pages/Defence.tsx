@@ -60,31 +60,31 @@ const Defence = () => (
             className="space-y-6"
           >
             <div className="p-6 rounded-xl bg-card border border-border">
-              <h3 className="font-heading font-semibold mt-0 mb-1">USV1</h3>
+              <h3 className="font-heading font-semibold mt-0 mb-1">UFV1: 25' Uncrewed Foiling Vessel</h3>
               <p className="text-sm font-body font-normal text-muted-foreground">
-                A TRL-7 demonstration platform for evaluation of both crew transportation and autonomous navigation in coastal and blue water operations.
+                A TRL-7 demonstration platform for evaluation of both crew transportation and autonomous ISR in coastal operations.
               </p>
             </div>
             <div className="p-6 rounded-xl bg-card border border-border">
-              <h3 className="font-heading font-semibold mt-0 mb-1">Micro UFV & 6m Crewed Foiler</h3>
+              <h3 className="font-heading font-semibold mt-0 mb-1">Blackfin: 2m Micro Uncrewed Foiling Vessel</h3>
               <p className="text-sm font-body font-normal text-muted-foreground">
-                A 2m fully autonomous micro UFV for autonomous ISR and mesh network communication relays, plus a 6m optionally crewed foiling craft for rapid crew transit and intercept.
+                A 2m uncrewed foiling vessel for autonomous ISR and mesh network communications relays.
               </p>
             </div>
           </motion.div>
         </div>
         <div className="space-y-6">
           <SpecTable
-            title="USV1 Key Specs"
+            title="UFV1 Key Specs"
             specs={[
-              { label: "Max Speed", value: "80 kph" },
-              { label: "Cruise Speed", value: "40 kph" },
-              { label: "Range at Cruise", value: "100 km" },
+              { label: "Max Speed", value: "43 kt" },
+              { label: "Cruise Speed", value: "20 kt" },
+              { label: "Range at Cruise", value: "54 nm" },
               { label: "Acceleration", value: "0 to foiling in 7 sec" },
             ]}
           />
           <SpecTable
-            title="Foiling Micro-USV Target Specs"
+            title="Blackfin Micro-UFV Target Specs"
             specs={[
               { label: "Top Speed", value: "25 kt" },
               { label: "Cruise Speed", value: "15 kt" },
