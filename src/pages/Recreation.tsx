@@ -9,7 +9,7 @@ import nv1Foiling from "@/assets/nv1-foiling-city.jpg";
 import nv1Lifestyle from "@/assets/nv1-lifestyle.jpg";
 import nv1PalmBeach from "@/assets/nv1-palmbeach-lifestyle.png";
 import nv1Dimensions from "@/assets/nv1-dimensions.png";
-import nv1FlightDiagram from "@/assets/nv1-flight-diagram-clean.png";
+import nv1FlightDiagram from "@/assets/nv1_transparent_with_wings.png.png";
 import nv1ConceptSketches from "@/assets/dweiss.png";
 import nv1Magenta from "@/assets/nv1-magenta-edition.jpg";
 import nv1Interior from "@/assets/nv1-interior-luxury.jpg";
