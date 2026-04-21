@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import { Calendar } from "lucide-react";
 import { getPublishedArticles } from "@/data/articles";
-import Banner from "@/assets/news.png";
+import Banner from "@/assets/news2.png";
 const News = () => {
   const articles = getPublishedArticles();
 
