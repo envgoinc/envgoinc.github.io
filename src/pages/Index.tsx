@@ -279,11 +279,11 @@ const Index = () => (
           Our Partners
         </motion.span>
       </div>
-  <div className="pointer-events-none absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background to-transparent" />
+  {/* <div className="pointer-events-none absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background to-transparent" /> */}
 
 <div className="group relative overflow-hidden">
-  <div className="pointer-events-none absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background to-transparent" />
-  <div className="pointer-events-none absolute right-0 top-0 h-full w-32 z-10 bg-gradient-to-l from-background to-transparent" />
+<div className="pointer-events-none absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background to-transparent hidden md:block" />
+<div className="pointer-events-none absolute right-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background to-transparent hidden md:block" />
 
   <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
     {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, i) => (

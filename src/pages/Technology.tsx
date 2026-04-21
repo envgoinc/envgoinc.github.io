@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import FeatureCard from "@/components/FeatureCard";
 import { motion } from "framer-motion";
 import techHero from "@/assets/tech_animation.mp4";
+import { Link } from "react-router-dom";
 
 const pillars = [
   {
@@ -138,8 +139,11 @@ const Technology = () => (
         >
           Connect with our team to explore how ENVGO's platform can serve your mission.
         </motion.p>
-        <motion.a
-          href="/contact"
+        <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm hover:brightness-110 transition-all"
+            >
+                      <motion.a
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -147,6 +151,8 @@ const Technology = () => (
         >
           Get Started
         </motion.a>
+        </Link>
+
       </div>
     </section>
   </main>
