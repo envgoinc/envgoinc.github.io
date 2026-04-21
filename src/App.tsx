@@ -28,6 +28,7 @@ import DesignovaPartnership from "./data/08_02_24";
 import MaRS from "./data/05_30_24";
 import SDTCFunding from "./data/05_18_24";
 import ACStudio from "./data/05_09_23";
+import DefenceExpansion from "./data/04_21_26"
 import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/news/envgo-joins-mars-discovery-district" element={<MaRS />} />
           <Route path="/news/envgo-secures-sdtc-funding" element={<SDTCFunding />} />
           <Route path="/news/envgo-ac-studio-program-grant" element={<ACStudio />} />
+          <Route path="news/envgo-expands-into-defence-public-safety" element={<DefenceExpansion />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

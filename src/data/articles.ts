@@ -11,6 +11,15 @@ export type Article = {
 // Add or edit articles here. They will appear on /news automatically.
 export const articles = [
   {
+  id: "0",
+  slug: "envgo-expands-into-defence-public-safety",
+  title: "ENVGO Expands into Defence and Public Safety, Bringing Next-Generation Marine Capability to Canada and Allied Markets",
+  excerpt: "ENVGO announces its strategic expansion into defence and public safety, positioning the company at the forefront of a new generation of marine capability.",
+  cover_image_url: "https://cdn.prod.website-files.com/67c8b53d8bda1119d403429e/69e7a63907c3ebc8b17dbf6e_NV1%20Stealth%20Wrap%20(1).png",
+  published_at: "2026-04-21",
+  published: true,
+},
+  {
     id: "1",
     slug: "envgo-palm-beach-2026",
     title: "ENVGO Brings The World's First Performance-Class Electric Hydrofoil To Palm Beach",
@@ -91,7 +100,7 @@ export const articles = [
   published_at: "2023-05-23",
   published: true,
 },
-  // ...add one per release
+
 ];
 
 
