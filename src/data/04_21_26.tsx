@@ -41,7 +41,7 @@ const DefenceExpansion = () => (
         >
           ENVGO Expands into Defence and Public Safety, Bringing Next-Generation Marine Capability to Canada and Allied Markets
         </motion.h1>
-        <motion.p
+        {/* <motion.p
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -49,7 +49,7 @@ const DefenceExpansion = () => (
           className="text-lg font-body text-envgo-grey leading-relaxed max-w-[600px]"
         >
           ENVGO Expands into Defence and Public Safety, Bringing Next-Generation Marine Capability to Canada and Allied Markets
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
 
