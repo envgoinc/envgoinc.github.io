@@ -6,8 +6,11 @@ const navLinks = [
   { to: "/technology", label: "Technology" },
   { to: "/defence", label: "Defence" },
   // { to: "/transportation", label: "Transportation" },
+
   { to: "/recreation", label: "Recreation" },
   { to: "/about", label: "About" },
+    { to: "/news", label: "News" },
+
 ];
 
 const Navbar = () => {

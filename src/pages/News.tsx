@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import { Calendar } from "lucide-react";
 import { getPublishedArticles } from "@/data/articles";
-
+import Banner from "@/assets/news.png";
 const News = () => {
   const articles = getPublishedArticles();
 
   return (
     <main className="pt-16">
       <PageHero
-        image=""
+        image={Banner}
         title="News & Updates"
         subtitle="Stay up to date with the latest from ENVGO — product launches, partnerships, and industry insights."
       />
